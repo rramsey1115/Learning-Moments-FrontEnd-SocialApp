@@ -1,14 +1,48 @@
 :root {
   --black: black;
-  --gray: #4B4B4B;
+  --gray: #4b4b4b;
   --yellow: #ffc800;
   --blue: #60afff;
   --lightblue: #88ccf1;
   --white: whitesmoke;
 }
+body {
+  line-height: 1;
+  background-color: var(--gray);
+  font-family: "Merriweather Sans", sans-serif;
+  color: white;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+
+
+
 
 /*Reset Default Styling
---------------------------------------------------------------*/
+----------------------------------------------
+--
+
+
+
+:-moz-ui-invalid---
+--------
+----------
+---------------
+--------------
+----------------
+----------------
+----------------
+------------------
+--------------------
+---------------------
+--------------------
+------------------
+-------------------
+----------------*/
 
 html,
 body,
@@ -112,17 +146,6 @@ menu,
 nav,
 section {
   display: block;
-}
-
-body {
-  line-height: 1;
-  background-color: var(--gray);
-  font-family: 'Merriweather Sans', sans-serif;;
-}
-
-ol,
-ul {
-  list-style: none;
 }
 
 blockquote,
