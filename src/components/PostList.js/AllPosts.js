@@ -4,6 +4,7 @@ import { getAllPosts } from "../../services/postService.js/getAllPosts";
 import { getAllTopics } from "../../services/SearchService/getTopics";
 import { Post } from "./Post";
 import { SearchBar } from "../Search.js/SearchBar";
+import { TopicFilter } from "../Search.js/TopicFilter";
 
 export const AllPosts = () => {
   const [allPosts, setAllPosts] = useState([]);
@@ -56,33 +57,10 @@ export const AllPosts = () => {
         </div>
         <div className="search-container">
           <div className="filter-dropdown">
-            <select
-              onChange={(changeEvent) =>
-                setFilteredByTopic(changeEvent.target.value)
-              }
-            >
-              <option value="0">Filter by Topic: </option>
-              {allTopics.map((topic) => {
-                return (
-                  <option key={topic.id} value={topic.id}>
-                    {topic.name}
-                  </option>
-                );
-              })}
-            </select>
+            <TopicFilter allTopics={allTopics} setFilteredByTopic={setFilteredByTopic}/>
           </div>
           <div className="search-input">
-            <input
-              type="text"
-              id="search-input-text"
-              defaultValue={userInput}
-              className="posts-search"
-              placeholder="Search Posts"
-              onChange={(event) => {
-                console.log("userInput changed to: " + userInput);
-                setUserInput(event.target.value);
-              }}
-            ></input>
+            <SearchBar userInput={userInput} setUserInput={setUserInput} />
           </div>
         </div>
       </div>

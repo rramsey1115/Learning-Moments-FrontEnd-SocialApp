@@ -11,12 +11,12 @@ export const Post = ({ filteredPosts, allPosts }) => {
     return ( <div key={postObj.id} className="post-body">
         <div className="post-body-left">
           <img className="post-image" alt="" src={postObj.user.picture}></img>
-          <div className="post-title">
-            <h3>{postObj.title}</h3>
+          <div>
+            <h5 className="post-title">{postObj.title}</h5>
           </div>
         </div>
         <div className="post-body-right">
-          <div className="post-topic">Topic: {postObj.topic.name}</div>
+          <div className="post-topic"><h5>Topic: {postObj.topic.name}</h5></div>
           <div className="post-likes">
             <Likes key={postObj.id} post={postObj} />
           </div>
