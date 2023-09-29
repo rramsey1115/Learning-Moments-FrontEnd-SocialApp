@@ -41,7 +41,7 @@ export const AllPosts = () => {
   useEffect(() => {
     if (showFilteredByTopicId > 0) {
       const filteredByTopicArray = allPosts.filter(
-        (post) => post.topic.id == showFilteredByTopicId
+        (post) => post.topic.id === parseInt(showFilteredByTopicId)
       );
       setFilteredPosts(filteredByTopicArray);
     } else {
