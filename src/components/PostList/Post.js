@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import { Likes } from "./Likes";
 
-export const Post = ({ filteredPosts, allPosts }) => {
+export const Post = ({ filteredPosts, allPosts, getAndSetPosts }) => {
     let postsArray = []
     if(filteredPosts.length > 0) {
         postsArray = filteredPosts
@@ -12,11 +13,11 @@ export const Post = ({ filteredPosts, allPosts }) => {
         <div className="post-body-left">
           <img className="post-image" alt="" src={postObj.user.picture}></img>
           <div>
-            <h5 className="post-title">{postObj.title}</h5>
+          <Link props={[postObj.id, getAndSetPosts]} key={postObj.id} to={`/postDetails/${postObj.id}`}><h5 className="post-title">{postObj.title}</h5></Link>
           </div>
         </div>
         <div className="post-body-right">
-          <div className="post-topic"><h5>Topic: {postObj.topic.name}</h5></div>
+          <div className="post-topic"><h5>{postObj.topic.name}</h5></div>
           <div className="post-likes">
             <Likes key={postObj.id} post={postObj} />
           </div>

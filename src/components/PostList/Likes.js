@@ -18,6 +18,6 @@ export const Likes = ({ post }) => {
     }, [allLikes, post.id])
 
     return (
-        <div key={post.id} className="post-likes"><h5>Likes: {postLikes.length}</h5></div>
+        <div key={post.id} className="post-likes"><h5>Fav: {postLikes.length}</h5></div>
     )
 }

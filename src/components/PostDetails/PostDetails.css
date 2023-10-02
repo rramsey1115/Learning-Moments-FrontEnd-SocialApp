@@ -1,0 +1,97 @@
+h1, h2, h3, h4 {
+    color: var(--blue)
+}
+
+h1, h2, h3 {
+    text-shadow: 0px 0px 1px whitesmoke;
+}
+
+.post-details {
+    width: 65vw;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+}
+
+.details-header-image {
+    height: 14vh;
+    width: 14vh;
+    margin: 5px 0px 10px 0px;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px var(--yellow);
+}
+
+.post-details-header {
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px 0px 20px 0px;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.details-header-top {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.details-header-bottom {
+    text-align: center;
+
+}
+
+.details-header-info {
+    padding: 2px;
+    margin: 2px 15px;
+}
+
+.details-header-about {
+    width: 80%;
+    margin: 2px auto;
+}
+
+.header-info-email {
+    padding-top: 6px;
+}
+
+.header-info-cohort {
+    padding-top: 6px;
+}
+
+.post-details-body {
+    border-radius: 15px;
+    padding: 5px;
+    margin: 10px 0px 20px 0px;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.details-body-title {
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.details-body-post {
+    padding: 5px;
+    margin: 0px;
+    text-align: center;
+}
+
+.details-button {
+    width: 150px;
+    height: 20px;
+    background-color: var(--blue);
+    color: var(--black);
+    cursor: pointer;
+}
+
+.details-button:hover {
+    box-shadow: 0px 0px 2px var(--yellow);
+    color: var(--yellow)
+}

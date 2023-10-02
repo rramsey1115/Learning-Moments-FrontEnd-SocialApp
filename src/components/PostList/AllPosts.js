@@ -3,15 +3,25 @@ import { useEffect, useState } from "react";
 import { getAllPosts } from "../../services/postService.js/getAllPosts";
 import { getAllTopics } from "../../services/SearchService/getTopics";
 import { Post } from "./Post";
-import { SearchBar } from "../Search.js/SearchBar";
-import { TopicFilter } from "../Search.js/TopicFilter";
+import { SearchBar } from "../Search/SearchBar";
+import { TopicFilter } from "../Search/TopicFilter";
 
-export const AllPosts = () => {
+export const AllPosts = ({ currentUser }) => {
   const [allPosts, setAllPosts] = useState([]);
   const [allTopics, setAllTopics] = useState([]);
   const [showFilteredByTopicId, setFilteredByTopic] = useState(0);
   const [filteredPosts, setFilteredPosts] = useState("");
   const [userInput, setUserInput] = useState("");
+
+  const getAndSetPosts = () => {
+    getAllPosts().then((allPostsArray) => {
+      setAllPosts(allPostsArray);
+    });
+  };
+
+  useEffect(() => {
+    getAndSetPosts();
+  }, []);
 
   useEffect(() => {
     const foundPosts = allPosts.filter((post) =>
@@ -25,12 +35,6 @@ export const AllPosts = () => {
       setFilteredPosts(allPosts);
     }
   }, [userInput, allPosts]);
-
-  useEffect(() => {
-    getAllPosts().then((allPostsArray) => {
-      setAllPosts(allPostsArray);
-    });
-  }, []);
 
   useEffect(() => {
     getAllTopics().then((topicsArray) => {
@@ -53,11 +57,16 @@ export const AllPosts = () => {
     <>
       <div className="feed-header">
         <div className="feed-header-title">
-          <h2>My Feed</h2>
+          <div>
+            <h3>My Feed</h3>
+          </div>
         </div>
         <div className="search-container">
           <div className="filter-dropdown">
-            <TopicFilter allTopics={allTopics} setFilteredByTopic={setFilteredByTopic}/>
+            <TopicFilter
+              allTopics={allTopics}
+              setFilteredByTopic={setFilteredByTopic}
+            />
           </div>
           <div className="search-input">
             <SearchBar userInput={userInput} setUserInput={setUserInput} />
@@ -65,7 +74,11 @@ export const AllPosts = () => {
         </div>
       </div>
       <div className="posts">
-        <Post filteredPosts={filteredPosts} allPosts={allPosts} />
+        <Post
+          getAndSetPosts={getAndSetPosts}
+          filteredPosts={filteredPosts}
+          allPosts={allPosts}
+        />
       </div>
     </>
   );

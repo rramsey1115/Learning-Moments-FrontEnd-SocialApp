@@ -34,6 +34,9 @@ p {
   width: 65vw;
   min-width: 375px;
   margin: 1% auto;
+  height: 83vh;
+  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
 .post-image {
@@ -49,16 +52,16 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 8vh;
+  height: 10vh;
   width: auto;
   min-width: 360px;
   margin: 2px 0;
   padding: 5px;
-  border: 1px solid var(--blue);
+  /* border: 1px solid var(--blue); */
   box-shadow: 0px 0px 1px var(--yellow);
   border-radius: 10px;
   background-color: var(--black);
-  color: whitesmoke;
+  color: var(--blue);
 }
 
 .post-body-left {
@@ -87,7 +90,7 @@ p {
 }
 
 .post-title:hover {
-    color: var(--blue);
+    color: var(--yellow);
 }
 
 .post-topic {

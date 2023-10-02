@@ -7,13 +7,23 @@
   --white: whitesmoke;
 }
 
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   line-height: 1;
   background-color: var(--gray);
   font-family: "Merriweather Sans", sans-serif;
   color: whitesmoke;
+  margin: 0;
 }
 
+.main-container {
+  padding: 0;
+  margin: 0;
+}
 ol,
 ul {
   list-style: none;
@@ -32,7 +42,7 @@ h2 {
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 26px;
   margin: 0;
   padding: 0;
 }

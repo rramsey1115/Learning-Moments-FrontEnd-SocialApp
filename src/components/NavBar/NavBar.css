@@ -1,0 +1,34 @@
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: var(--black);
+    margin: 0;
+    width: 100%;
+    height: 7vh;
+    padding: 0;
+    align-items: center;
+  }
+
+  .navbar-item {
+    flex-basis: 15%;
+    list-style-type: none;
+    text-align: center;
+    color: var(--blue);
+}
+
+.navbar-link {
+    text-decoration: none;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+
+  .navbar-logout {
+    margin-left: auto;
+  }
+
+  .navbar-link:hover {
+    color: var(--yellow);
+
+  }#navbar-logo {
+    height: 6vh;
+}
