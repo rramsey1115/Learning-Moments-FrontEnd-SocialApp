@@ -18,7 +18,7 @@ export const Favorites = ({ currentUser }) => {
     getFavPosts(currentUser).then((favesArray) => {
       setFavPosts(favesArray);
     });
-  }, [currentUser, favPosts]);
+  }, [currentUser]);
 
   return (
     <>

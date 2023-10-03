@@ -33,7 +33,6 @@ export const PostDetails = ({ currentUser }) => {
       const filteredLikes = likes2.filter(
         (like2) => like2.userId === currentUser.id
       );
-      console.log(filteredLikes);
       if (filteredLikes.length === 0) {
         const newLikeObj = {
           postId: parseInt(postId),

@@ -6,13 +6,16 @@ import { useEffect } from "react";
 export const FavPost = ({ favPostObj, allPosts, currentUser, setFavPosts }) => {
   const likedPost = allPosts.filter((post) => favPostObj.postId === post.id);
 
+  
   useEffect(() => {
-    const getUpdatedFavorites = () => {
-      getFavPosts(currentUser).then((updatedFavesArray) => {
-        setFavPosts(updatedFavesArray);
-      });
+      const getUpdatedFavorites = () => {
+        getFavPosts(currentUser).then((updatedFavesArray) => {
+          setFavPosts(updatedFavesArray);
+        });
     };
-  }, [currentUser, setFavPosts]);
+    getUpdatedFavorites()
+    console.log("getUpdatedFavorites() Executed")
+  }, [currentUser]);
 
   const handleDeleteFavorite = (ObjId) => {
     console.log("delete favorite with userLikes.id of --" + ObjId);
