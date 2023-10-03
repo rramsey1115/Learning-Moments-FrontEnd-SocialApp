@@ -8,20 +8,24 @@ export const NavBar = () => {
   return (
     <ul className="navbar">
       <li className="navbar-item">
-        <img
-        className="navbar-link"
-          id="navbar-logo"
-          src={logo}
-          alt="logo of lightbulb with brain inside emitting light"
-        />
+        <Link to="/">
+          <img
+            className="navbar-link"
+            id="navbar-logo"
+            src={logo}
+            alt="logo of lightbulb with brain inside emitting light"
+          />
+        </Link>
       </li>
       <li className="navbar-item">
         <div className="navbar-link">
-          <Link to="/allPosts">All Posts</Link>
+          <Link to="/">All Posts</Link>
         </div>
       </li>
       <li className="navbar-item">
-        <div className="navbar-link">Favorites</div>
+        <div className="navbar-link">
+          <Link to="/favorites">Favorites</Link>
+        </div>
       </li>
       <li className="navbar-item">
         <div className="navbar-link">My Posts</div>

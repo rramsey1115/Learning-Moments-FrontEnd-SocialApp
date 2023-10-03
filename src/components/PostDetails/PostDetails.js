@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  getAllLikes,
   getLikeByPostId,
   likePost,
 } from "../../services/LikesService.js/getAllLikes";
@@ -10,7 +11,7 @@ import { getPostsById } from "../../services/postService.js/getAllPosts";
 export const PostDetails = ({ currentUser }) => {
   const [post, setPost] = useState([]);
   const [likes, setLikes] = useState([]);
-  const { postId, getAndSetPosts } = useParams();
+  const { postId } = useParams();
 
   useEffect(() => {
     getPostsById(postId).then((data) => {
@@ -21,21 +22,30 @@ export const PostDetails = ({ currentUser }) => {
 
   useEffect(() => {
     getLikeByPostId(postId).then((data) => {
-      const likesArray = JSON.stringify(data);
+      const likesArray = data;
       setLikes(likesArray);
     });
-  }, [postId, likes]);
+  }, [postId, likes.length]);
 
   const handleFavoriteBtn = (postId) => {
-    console.log("favorite button clicked");
-    const newLikeObj = {
-      postId: parseInt(postId),
-      userId: currentUser.id,
-    };
-
-    likePost(newLikeObj).then(() => {
+    getLikeByPostId(postId).then((data) => {
+      const likes2 = data;
+      const filteredLikes = likes2.filter(
+        (like2) => like2.userId === currentUser.id
+      );
+      console.log(filteredLikes);
+      if (filteredLikes.length === 0) {
+        const newLikeObj = {
+          postId: parseInt(postId),
+          userId: currentUser.id,
+        }
+        likePost(newLikeObj).then(() => {});
+      } else {
+        window.alert("you already liked this post");
+      }
     });
   };
+
 
   const handleEditBtn = () => {
     console.log("edit button clicked");

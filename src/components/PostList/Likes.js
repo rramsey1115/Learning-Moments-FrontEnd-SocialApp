@@ -15,7 +15,7 @@ export const Likes = ({ post }) => {
     useEffect(() => {
         const foundLikes = allLikes.filter((like) => like.postId === post.id)
         setPostLikes(foundLikes)
-    }, [allLikes, post.id])
+    }, [allLikes, post])
 
     return (
         <div key={post.id} className="post-likes"><h5>Fav: {postLikes.length}</h5></div>

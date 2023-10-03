@@ -3,6 +3,7 @@ import { Outlet, Route, Routes } from "react-router-dom";
 import { AllPosts } from "../components/PostList/AllPosts";
 import { NavBar } from "../components/NavBar/NavBar";
 import { PostDetails } from "../components/PostDetails/PostDetails";
+import { Favorites } from "../components/Favorites/Favorites";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState([]);
@@ -26,8 +27,15 @@ export const ApplicationViews = () => {
       >
         <Route index element={<AllPosts currentUser={currentUser} />} />
         <Route path="postDetails">
-          <Route path=":postId" element={<PostDetails currentUser={currentUser}/>} />
+          <Route
+            path=":postId"
+            element={<PostDetails currentUser={currentUser} />}
+          />
         </Route>
+        <Route
+          path="favorites"
+          element={<Favorites currentUser={currentUser} />}
+        />
       </Route>
     </Routes>
   );

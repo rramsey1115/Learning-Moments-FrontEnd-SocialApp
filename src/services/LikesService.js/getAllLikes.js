@@ -3,7 +3,7 @@ export const getAllLikes = () => {
 }
 
 export const getLikeByPostId = (postId) => {
-    return fetch(`http://localhost:8088/userlikes?postId=${postId}&_expand=user&_expand=post`)
+    return fetch(`http://localhost:8088/userlikes?postId=${postId}&_expand=user&_expand=post`).then(res => res.json())
 }
 
 export const likePost = (newLikeObj) => {
@@ -15,4 +15,8 @@ export const likePost = (newLikeObj) => {
           },
           body: JSON.stringify(newLikeObj),
     })
+}
+
+export const deleteFavoritedPost = (deletedObjId) => {
+    return fetch(`http://localhost:8088/userlikes/${deletedObjId}`,{method: "DELETE"})
 }
