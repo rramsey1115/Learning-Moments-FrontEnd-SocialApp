@@ -3,6 +3,7 @@ import { getAllTopics } from "../../services/SearchService/getTopics";
 import { useEffect, useState } from "react";
 import logo from "./NoTextLogo.png";
 import { PostNewPost } from "../../services/postService.js/postNewPost";
+import { useNavigate } from "react-router-dom";
 
 export const NewPost = ({ currentUser }) => {
   const today = new Date();
@@ -22,6 +23,8 @@ export const NewPost = ({ currentUser }) => {
     topicId: 0,
   });
 
+  const Navigate = useNavigate();
+
   useEffect(() => {
     getAllTopics().then((result) => {
       setTopicsArray(result);
@@ -31,12 +34,17 @@ export const NewPost = ({ currentUser }) => {
   return (
     <section className="new-post">
       <div className="new-post-header">
-        {/* <h2>Share A New Learning Moment</h2> */}
-        {/* <img src={logo} alt="logo of lightbult with brain inside" /> */}
+        <h2>Share Your</h2>
+        <h2>Learning Moment</h2>
+        <img
+          id="form-logo"
+          src={logo}
+          alt="logo of lightbult with brain inside"
+        />
       </div>
-      <form className="post-form">
+      <form className="new-post-form">
         <select
-          className="post-form-dropdown"
+          className="new-post-dropdown form-item"
           required
           onChange={(event) => {
             const copy = { ...newPostObj };
@@ -57,7 +65,7 @@ export const NewPost = ({ currentUser }) => {
           type="text"
           value={newPostObj.title}
           placeholder="Post Title"
-          className="post-form-input"
+          className="new-post-input form-item"
           required
           onChange={(event) => {
             const copy = { ...newPostObj };
@@ -65,11 +73,11 @@ export const NewPost = ({ currentUser }) => {
             setNewPostObj(copy);
           }}
         />
-        <input
-          type="textarea"
+        <textarea
+          type="text"
           value={newPostObj.body}
           placeholder="Your Learning Moment"
-          className="post-form-input"
+          className="new-post-body form-item"
           required
           onChange={(event) => {
             const copy = { ...newPostObj };
@@ -83,15 +91,22 @@ export const NewPost = ({ currentUser }) => {
         newPostObj.date ? (
           <button
             type="submit"
+            className="new-post-button"
+            id="new-post-button-enabled"
             onClick={(event) => {
               event.preventDefault();
-              PostNewPost(newPostObj);
+              PostNewPost(newPostObj).then(Navigate("/myPosts"));
             }}
           >
             Post
           </button>
         ) : (
-          <button type="submit" disabled>
+          <button
+            type="submit"
+            disabled
+            className="new-post-button"
+            id="new-post-button-disabled"
+          >
             Post
           </button>
         )}

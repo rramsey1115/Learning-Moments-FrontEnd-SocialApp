@@ -22,7 +22,7 @@ export const Favorites = ({ currentUser }) => {
 
   return (
     <>
-      <div className="favorites-header">
+      <div className="feed-header">
         <div className="favorites-header-title">
           <div>
             <h3>My Favorites</h3>

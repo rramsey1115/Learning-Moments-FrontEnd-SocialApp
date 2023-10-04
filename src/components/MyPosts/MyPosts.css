@@ -1,0 +1,10 @@
+.myposts {
+    display: flex;
+    flex-direction: column;
+    width: 65vw;
+    min-width: 375px;
+    margin: 1% auto;
+    height: 83vh;
+    overflow-y: hidden;
+    overflow-y: auto;
+  }

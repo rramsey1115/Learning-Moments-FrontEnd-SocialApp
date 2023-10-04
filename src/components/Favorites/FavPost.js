@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { deleteFavoritedPost } from "../../services/LikesService.js/getAllLikes";
+import { deleteFavPost } from "../../services/LikesService.js/getAllLikes";
 import { getFavPosts } from "../../services/postService.js/getFavoritePosts";
 import { useEffect } from "react";
 
@@ -19,7 +19,7 @@ export const FavPost = ({ favPostObj, allPosts, currentUser, setFavPosts }) => {
 
   const handleDeleteFavorite = (ObjId) => {
     console.log("delete favorite with userLikes.id of --" + ObjId);
-    deleteFavoritedPost(ObjId);
+    deleteFavPost(ObjId);
   };
 
   return (

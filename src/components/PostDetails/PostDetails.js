@@ -4,7 +4,7 @@ import {
   getLikeByPostId,
   likePost,
 } from "../../services/LikesService.js/getAllLikes";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./PostDetails.css";
 import { getPostsById } from "../../services/postService.js/getAllPosts";
 
@@ -12,6 +12,7 @@ export const PostDetails = ({ currentUser }) => {
   const [post, setPost] = useState([]);
   const [likes, setLikes] = useState([]);
   const { postId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getPostsById(postId).then((data) => {
@@ -37,17 +38,17 @@ export const PostDetails = ({ currentUser }) => {
         const newLikeObj = {
           postId: parseInt(postId),
           userId: currentUser.id,
-        }
-        likePost(newLikeObj).then(() => {});
+        };
+        likePost(newLikeObj).then(navigate("/favorites"));
       } else {
         window.alert("you already liked this post");
       }
     });
   };
 
-
-  const handleEditBtn = () => {
-    console.log("edit button clicked");
+  const handleEditBtn = (postId) => {
+    console.log("edit button clicked")
+    navigate(`/editPost/${postId}`);
   };
 
   return (

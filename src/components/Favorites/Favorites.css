@@ -35,8 +35,8 @@ p {
   min-width: 375px;
   margin: 1% auto;
   height: 83vh;
-  /* overflow-y: hidden; */
-  overflow-y: hidden scroll;
+  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .post-image {

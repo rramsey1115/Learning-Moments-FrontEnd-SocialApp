@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { getMyPosts } from "../../services/postService.js/getMyPosts";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Likes } from "../PostList/Likes";
+import { DeletePost } from "../../services/postService.js/deletePost";
+import "./MyPosts.css";
 
 export const MyPosts = ({ currentUser, getAndSetPosts }) => {
   const [myPosts, setMyPosts] = useState([]);
@@ -10,14 +12,20 @@ export const MyPosts = ({ currentUser, getAndSetPosts }) => {
     setMyPosts(data);
   });
 
+  const handleDeletePost = (postId) => {
+    DeletePost(postId);
+  };
+
+  const Navigate = useNavigate();
+
   return (
     <>
       <div className="feed-header">
         <div className="feed-header-title">
-          <h3>My Feed</h3>
+          <h3>My Posts</h3>
         </div>
       </div>
-      <div className="posts">
+      <div className="myposts">
         {myPosts.map((post) => {
           return (
             <div key={post.id} className="post-body">
@@ -38,11 +46,20 @@ export const MyPosts = ({ currentUser, getAndSetPosts }) => {
                 </div>
               </div>
               <div className="post-body-right">
-                <div className="post-topic">
-                  <h5>{post.topic.name}</h5>
-                </div>
                 <div className="post-likes">
                   <Likes key={post.id} post={post} />
+                </div>
+                <div>
+                  <button
+                    value={post.id}
+                    className="delete-button"
+                    onClick={(event) => {
+                      handleDeletePost(event.target.value)
+                    }}
+                  >
+                    {" "}
+                    X{" "}
+                  </button>
                 </div>
               </div>
             </div>

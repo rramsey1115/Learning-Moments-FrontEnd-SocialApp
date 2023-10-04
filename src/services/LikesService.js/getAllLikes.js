@@ -17,6 +17,6 @@ export const likePost = (newLikeObj) => {
     })
 }
 
-export const deleteFavoritedPost = (deletedObjId) => {
+export const deleteFavPost = (deletedObjId) => {
     return fetch(`http://localhost:8088/userlikes/${deletedObjId}`,{method: "DELETE"})
 }

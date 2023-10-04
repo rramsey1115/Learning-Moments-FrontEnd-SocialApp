@@ -18,6 +18,7 @@ body {
   font-family: "Merriweather Sans", sans-serif;
   color: whitesmoke;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .main-container {
@@ -48,7 +49,7 @@ h3 {
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 18px;
   margin: 0;
   padding: 0;
 }
@@ -64,6 +65,10 @@ p {
   font-size: 16px;
   margin: 0;
   padding: 0;
+}
+
+button {
+  cursor: pointer;
 }
 
 /*Reset Default Styling
