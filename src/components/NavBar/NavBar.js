@@ -29,13 +29,18 @@ export const NavBar = () => {
       </li>
       <li className="navbar-item">
         <div className="navbar-link">
-        <Link to="/myPosts">My Posts</Link>
-          </div>
+          <Link to="/newPost">New Post</Link>
+        </div>
       </li>
       <li className="navbar-item">
         <div className="navbar-link">
-        <Link to="/newPost">New Post</Link>
-          </div>
+          <Link to="/myPosts">My Posts</Link>
+        </div>
+      </li>
+      <li className="navbar-item">
+        <div className="navbar-link">
+          <Link to="currentUserProfile">My Profile</Link>
+        </div>
       </li>
       {localStorage.getItem("learning_user") ? (
         <li className="navbar-item">
@@ -54,9 +59,6 @@ export const NavBar = () => {
       ) : (
         ""
       )}
-      <li className="navbar-item">
-        <div className="navbar-link">Profile</div>
-      </li>
     </ul>
   );
 };

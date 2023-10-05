@@ -7,6 +7,9 @@ import { Favorites } from "../components/Favorites/Favorites";
 import { NewPost } from "../components/NewPost/NewPost";
 import { MyPosts } from "../components/MyPosts/MyPosts";
 import { EditPost } from "../components/EditPost/EditPost";
+import { CurrentUserProfile } from "../components/Profiles/CurrentUserProfile";
+import { UserProfile } from "../components/Profiles/UserProfile";
+import { EditProfile } from "../components/Profiles/EditProfile";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState([]);
@@ -47,6 +50,20 @@ export const ApplicationViews = () => {
             element={<EditPost currentUser={currentUser} />}
           />
         </Route>
+        <Route path="userProfile">
+          <Route
+            path=":userId"
+            element={<UserProfile currentUser={currentUser} />}
+          />
+        </Route>
+        <Route
+          path="currentUserProfile"
+          element={<CurrentUserProfile currentUser={currentUser} />}
+        />
+          <Route
+            path="editProfile"
+            element={<EditProfile currentUser={currentUser} />}
+          />
       </Route>
     </Routes>
   );

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { getMyPosts } from "../../services/postService.js/getMyPosts";
+import { useEffect, useState } from "react";
+import { getMyPosts, getPostsByUserId } from "../../services/postService.js/getMyPosts";
 import { Link, useNavigate } from "react-router-dom";
 import { Likes } from "../PostList/Likes";
 import { DeletePost } from "../../services/postService.js/deletePost";
@@ -8,21 +8,22 @@ import "./MyPosts.css";
 export const MyPosts = ({ currentUser, getAndSetPosts }) => {
   const [myPosts, setMyPosts] = useState([]);
 
-  getMyPosts(currentUser.id).then((data) => {
+  useEffect(() => {getPostsByUserId(currentUser?.id).then((data) => {
     setMyPosts(data);
-  });
+  });},[currentUser])
+  
 
   const handleDeletePost = (postId) => {
     DeletePost(postId);
   };
 
-  const Navigate = useNavigate();
+  // const Navigate = useNavigate();
 
   return (
     <>
       <div className="feed-header">
         <div className="feed-header-title">
-          <h3>My Posts</h3>
+          <h3>My Learning Moments</h3>
         </div>
       </div>
       <div className="myposts">

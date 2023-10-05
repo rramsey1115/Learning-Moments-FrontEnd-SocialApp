@@ -113,7 +113,6 @@ export const EditPost = ({ currentUser }) => {
               onClick={(event) => {
                 event.preventDefault();
                 handleUpdatePost();
-                console.log("save button clicked");
               }}
             >
               Save

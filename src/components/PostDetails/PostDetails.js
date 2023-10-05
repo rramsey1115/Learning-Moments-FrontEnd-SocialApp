@@ -4,7 +4,7 @@ import {
   getLikeByPostId,
   likePost,
 } from "../../services/LikesService.js/getAllLikes";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./PostDetails.css";
 import { getPostsById } from "../../services/postService.js/getAllPosts";
 
@@ -30,11 +30,11 @@ export const PostDetails = ({ currentUser }) => {
 
   const handleFavoriteBtn = (postId) => {
     getLikeByPostId(postId).then((data) => {
-      const likes2 = data;
-      const filteredLikes = likes2.filter(
-        (like2) => like2.userId === currentUser.id
+      const allPostLikes = data;
+      const likedThisPost = allPostLikes.filter(
+        (postLike) => postLike.userId === currentUser.id
       );
-      if (filteredLikes.length === 0) {
+      if (likedThisPost.length === 0) {
         const newLikeObj = {
           postId: parseInt(postId),
           userId: currentUser.id,
@@ -47,7 +47,7 @@ export const PostDetails = ({ currentUser }) => {
   };
 
   const handleEditBtn = (postId) => {
-    console.log("edit button clicked")
+    console.log("edit button clicked");
     navigate(`/editPost/${postId}`);
   };
 
@@ -56,17 +56,19 @@ export const PostDetails = ({ currentUser }) => {
       <h3>User Details</h3>
       <header className="post-details-header">
         <div className="details-header-top">
-          <img
-            className="details-header-image"
-            src={post.user?.picture}
-            alt="headshot of user"
-          />
+          <Link to={`/userProfile/${post?.user?.id}`}>
+            <img
+              className="details-header-image"
+              src={post.user?.picture}
+              alt="headshot of user"
+            />
+          </Link>
           <div className="details-header-info">
             <div className="header-info-name">
-              <h4>{post?.user?.fullname}</h4>
+            <Link to={`/userProfile/${post?.user?.id}`}><h4 id="name-link">{post?.user?.fullname}</h4></Link>
             </div>
-            <div className="header-info-email">{post.user?.email}</div>
-            <div className="header-info-cohort">Cohort {post.user?.cohort}</div>
+            <div className="header-info-details">{post.user?.email}</div>
+            <div className="header-info-details">Cohort {post.user?.cohort}</div>
           </div>
         </div>
         <div className="details-header-bottom">

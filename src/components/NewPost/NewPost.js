@@ -15,6 +15,7 @@ export const NewPost = ({ currentUser }) => {
   const formattedToday = mm + "/" + dd + "/" + yyyy;
 
   const [topicsArray, setTopicsArray] = useState([]);
+  // const [user, setUser] = useState({})
   const [newPostObj, setNewPostObj] = useState({
     title: "",
     body: "",
@@ -25,11 +26,25 @@ export const NewPost = ({ currentUser }) => {
 
   const Navigate = useNavigate();
 
+  useEffect(()=> {
+    setNewPostObj(newPostObj)
+  }, [])
+
   useEffect(() => {
     getAllTopics().then((result) => {
       setTopicsArray(result);
     });
   }, []);
+
+  // useEffect(() => {
+  //   setUser(currentUser)
+  // },[currentUser])
+
+  const handleNewPost = async () => {
+    await PostNewPost(newPostObj);
+    Navigate("/myPosts");
+  }
+
 
   return (
     <section className="new-post">
@@ -95,7 +110,7 @@ export const NewPost = ({ currentUser }) => {
             id="new-post-button-enabled"
             onClick={(event) => {
               event.preventDefault();
-              PostNewPost(newPostObj).then(Navigate("/myPosts"));
+              handleNewPost();
             }}
           >
             Post
