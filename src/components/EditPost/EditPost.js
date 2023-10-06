@@ -39,13 +39,17 @@ export const EditPost = ({ currentUser }) => {
     <>
       <section className="edit-post">
         <div className="edit-post-header">
-          <h2>Edit Your</h2>
-          <h2>Learning Moment</h2>
-          <img
-            id="form-logo"
-            src={logo}
-            alt="logo of lightbult with brain inside"
-          />
+          <div className="post-header-left">
+            <img
+              id="form-logo"
+              src={logo}
+              alt="logo of lightbult with brain inside"
+            />
+          </div>
+          <div className="post-header-right">
+            <h2>Edit Your</h2>
+            <h2>Learning Moment</h2>
+          </div>
         </div>
         <form className="edit-post-form">
           <div className="edit-post-label">
@@ -55,7 +59,8 @@ export const EditPost = ({ currentUser }) => {
             {topicsArray.map((topic) => {
               return (
                 <label className="radio-label" key={topic.id}>
-                  <input className="radio-item"
+                  <input
+                    className="radio-item"
                     required
                     type="radio"
                     name="radio"
@@ -92,6 +97,7 @@ export const EditPost = ({ currentUser }) => {
           </label>
           <textarea
             type="text"
+            rows={6}
             value={userChoices.body}
             placeholder={userChoices.body}
             className="new-post-body form-item"

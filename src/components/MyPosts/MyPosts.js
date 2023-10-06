@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { getMyPosts, getPostsByUserId } from "../../services/postService.js/getMyPosts";
+import {
+  getMyPosts,
+  getPostsByUserId,
+} from "../../services/postService.js/getMyPosts";
 import { Link, useNavigate } from "react-router-dom";
 import { Likes } from "../PostList/Likes";
 import { DeletePost } from "../../services/postService.js/deletePost";
@@ -8,16 +11,20 @@ import "./MyPosts.css";
 export const MyPosts = ({ currentUser, getAndSetPosts }) => {
   const [myPosts, setMyPosts] = useState([]);
 
-  useEffect(() => {getPostsByUserId(currentUser?.id).then((data) => {
-    setMyPosts(data);
-  });},[currentUser])
-  
-
-  const handleDeletePost = (postId) => {
-    DeletePost(postId);
+  const getandSetMyPosts = () => {
+    getPostsByUserId(currentUser?.id).then((data) => {
+      setMyPosts(data);
+    });
   };
 
-  // const Navigate = useNavigate();
+  useEffect(() => {
+    getandSetMyPosts();
+  }, []);
+
+  const handleDeletePost = async (postId) => {
+    await DeletePost(postId);
+    getandSetMyPosts();
+  };
 
   return (
     <>
@@ -31,11 +38,13 @@ export const MyPosts = ({ currentUser, getAndSetPosts }) => {
           return (
             <div key={post.id} className="post-body">
               <div className="post-body-left">
-                <img
-                  className="post-image"
-                  alt=""
-                  src={post.user.picture}
-                ></img>
+                <Link to={`/userProfile/${post?.user?.id}`}>
+                  <img
+                    className="post-image"
+                    alt=""
+                    src={post.user.picture}
+                  ></img>
+                </Link>
                 <div>
                   <Link
                     props={[post.id, getAndSetPosts]}
@@ -51,16 +60,14 @@ export const MyPosts = ({ currentUser, getAndSetPosts }) => {
                   <Likes key={post.id} post={post} />
                 </div>
                 <div>
-                  <button
+                  <i
+                    className="fa-solid fa-circle-xmark fa-xl"
+                    id="post-delete-button"
                     value={post.id}
-                    className="delete-button"
                     onClick={(event) => {
-                      handleDeletePost(event.target.value)
+                      handleDeletePost(post.id);
                     }}
-                  >
-                    {" "}
-                    X{" "}
-                  </button>
+                  ></i>
                 </div>
               </div>
             </div>

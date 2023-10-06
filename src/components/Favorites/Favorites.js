@@ -18,12 +18,10 @@ export const Favorites = ({ currentUser }) => {
   const getAndSetMyFavorites = () => {
     getFavPosts(currentUser).then((favesArray) => {
       setMyFavPosts(favesArray);
-      console.log("getAndSetMyFavorites executed");
     });
   };
 
   const handleDeleteFavorite = async (ObjId) => {
-    console.log("delete favorite with userLikes.id of --" + ObjId);
     await deleteFavPost(ObjId);
     getAndSetMyFavorites();
   };
@@ -39,19 +37,6 @@ export const Favorites = ({ currentUser }) => {
       setMyFavPosts(favesArray);
     });
   }, [currentUser]);
-
-  // useEffect(() => {
-  //   getAndSetAllLikes();
-  // }, []);
-
-  // useEffect(() => {
-  //   const getUpdatedFavorites = () => {
-  //     getFavPosts(currentUser).then((updatedFavesArray) => {
-  //       setMyFavPosts(updatedFavesArray);
-  //     });
-  //   };
-  //   getUpdatedFavorites();
-  // }, [currentUser]);
 
   return (
     <>
@@ -72,11 +57,13 @@ export const Favorites = ({ currentUser }) => {
             <div key={likeObj.id} className="favorites-posts">
               <div key={likeObj.id} className="post-body">
                 <div className="post-body-left">
-                  <img
-                    className="post-image"
-                    alt=""
-                    src={likedPost[0]?.user?.picture}
-                  ></img>
+                  <Link to={`/userProfile/${likedPost[0]?.user?.id}`}>
+                    <img
+                      className="post-image"
+                      alt=""
+                      src={likedPost[0]?.user?.picture}
+                    ></img>
+                  </Link>
                   <div>
                     <Link
                       props={[likedPost[0].id]}
@@ -87,14 +74,12 @@ export const Favorites = ({ currentUser }) => {
                     </Link>
                   </div>
                 </div>
-                <button
+                <i
+                  className="fa-solid fa-circle-xmark fa-xl"
+                  id="delete-fav-button"
                   value={likeObj.id}
-                  className="delete-fav-button button"
-                  onClick={(event) => handleDeleteFavorite(event.target.value)}
-                >
-                  {" "}
-                  X{" "}
-                </button>
+                  onClick={(event) => handleDeleteFavorite(likeObj.id)}
+                ></i>
               </div>
             </div>
           );

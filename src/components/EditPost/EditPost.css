@@ -1,48 +1,59 @@
-
+h4 {
+  font-size: 18px;
+}
 .edit-post {
-    display: flex;
-    flex-direction: column;
-    width: 65vw;
-    background-color: var(--black);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 30px auto;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  min-width: 330px;
+  background-color: var(--black);
+  padding: 25px;
+  border-radius: 10px;
+  margin: 30px auto;
+  align-items: center;
 }
 
 .edit-post-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.post-header-left {
+}
+
+.post-header-right {
 }
 
 #form-logo {
-    height: 30vh;
-    margin: 20px auto;
+  height: 20vh;
+  margin: 20px auto;
 }
 
 .edit-post-form {
-    display: flex;
-    flex-direction: column;
-    font-family: inherit;
-    margin: 5px auto;
-    width: 65vw;
+  display: flex;
+  flex-direction: column;
+  font-family: inherit;
+  margin: 5px auto;
+  width: 95%;
 }
 
 .edit-post-radios {
-    display: flex;
-    flex-wrap: row;
-    justify-content: space-between;
-    margin: 5px 0 15px 0;
-    accent-color: var(--yellow);
+  display: flex;
+  flex-wrap: row;
+  justify-content: space-between;
+  margin: 5px 0 15px 0;
+  accent-color: var(--yellow);
 }
 
 .radio-label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .radio-label:focus-within {
-    color: var(--yellow);
+  color: var(--yellow);
 }
 
 /* .radio-item {
@@ -58,43 +69,43 @@
 } */
 
 .radio-item:checked {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .edit-post-label {
-    margin: 10px 0px;
+  margin: 10px 0px;
 }
 
 .form-item {
-    margin: 0 0 10px 0;
-    padding: 5px;
-    font-family: inherit;
-    color: var(--black);
-    background-color: whitesmoke;
+  margin: 0 0 10px 0;
+  padding: 5px;
+  font-family: inherit;
+  color: var(--black);
+  background-color: whitesmoke;
 }
 
 .edit-post-body {
-    font-family: inherit;
+  font-family: inherit;
 }
 
 .edit-post-button {
-    margin-top: 5px;
-    padding: 3px;
-    font-family: inherit;
+  margin-top: 5px;
+  padding: 3px;
+  font-family: inherit;
 }
 
 #edit-post-button-disabled {
-    background-color: gray;
-    color: black;
-    cursor: inherit;
+  background-color: gray;
+  color: black;
+  cursor: inherit;
 }
 
 #edit-post-button-enabled {
-    background-color: var(--blue);
+  background-color: var(--blue);
 }
 
 #edit-post-button-enabled:hover {
-    background-color: var(--blue);
-    box-shadow: 0px 0px 10px var(--yellow);
-    color: var(--yellow);
+  background-color: var(--blue);
+  box-shadow: 0px 0px 10px var(--yellow);
+  color: var(--yellow);
 }

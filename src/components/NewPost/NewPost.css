@@ -1,11 +1,11 @@
 
 .new-post {
-    width: 65vw;
+    width: 60vw;
+    max-width: 600px;
     min-width: 320px;
     display: flex;
     flex-direction: column;
     background-color: var(--black);
-    /* width: 300px; */
     padding: 20px;
     border-radius: 10px;
     margin: 30px auto;
@@ -19,7 +19,7 @@
 }
 
 #form-logo {
-    height: 25vh;
+    height: 30vh;
     margin: 20px auto;
 }
 
@@ -28,16 +28,23 @@
     flex-direction: column;
     font-family: inherit;
     margin: 5px auto;
-    width: 63vw;
-    min-width: 300px;
+    width: 100%;
+    align-items: center;
 }
 
-.form-item {
-    margin: 0 0 10px 0;
+.new-post-form-item {
+    margin: 0px 0px 14px 0px;
+    width: 100%;
+    min-width: 300px;
     padding: 5px;
     font-family: inherit;
     color: var(--black);
     background-color: whitesmoke;
+}
+
+.new-post-dropdown {
+    width: 102%;
+    min-width: 333px;
 }
 
 .new-post-body {
@@ -45,6 +52,8 @@
 }
 
 .new-post-button {
+    width: 20vw;
+    min-width: 200px;
     margin-top: 5px;
     padding: 3px;
     font-family: inherit;

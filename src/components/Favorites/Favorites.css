@@ -93,6 +93,16 @@ p {
   color: var(--yellow);
 }
 
+#delete-fav-button {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+#delete-fav-button:hover {
+  color: var(--yellow);
+}
+
+
 .post-topic {
   padding: 2px 2px 2px 2px;
 }

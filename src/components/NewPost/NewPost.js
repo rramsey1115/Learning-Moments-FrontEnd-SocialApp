@@ -49,8 +49,8 @@ export const NewPost = ({ currentUser }) => {
   return (
     <section className="new-post">
       <div className="new-post-header">
-        <h2>Share Your</h2>
-        <h2>Learning Moment</h2>
+        <h1>Share Your</h1>
+        <h1>Learning Moment</h1>
         <img
           id="form-logo"
           src={logo}
@@ -59,7 +59,7 @@ export const NewPost = ({ currentUser }) => {
       </div>
       <form className="new-post-form">
         <select
-          className="new-post-dropdown form-item"
+          className="new-post-dropdown new-post-form-item"
           required
           onChange={(event) => {
             const copy = { ...newPostObj };
@@ -80,7 +80,7 @@ export const NewPost = ({ currentUser }) => {
           type="text"
           value={newPostObj.title}
           placeholder="Post Title"
-          className="new-post-input form-item"
+          className="new-post-input new-post-form-item"
           required
           onChange={(event) => {
             const copy = { ...newPostObj };
@@ -92,7 +92,7 @@ export const NewPost = ({ currentUser }) => {
           type="text"
           value={newPostObj.body}
           placeholder="Your Learning Moment"
-          className="new-post-body form-item"
+          className="new-post-body new-post-form-item"
           required
           onChange={(event) => {
             const copy = { ...newPostObj };

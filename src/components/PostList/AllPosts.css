@@ -22,6 +22,12 @@ h4 {
   padding: 0;
 }
 
+h5 {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
 p {
   font-size: 14px;
   margin: 0;
@@ -32,7 +38,7 @@ p {
   display: flex;
   flex-direction: column;
   width: 65vw;
-  min-width: 375px;
+  min-width: 380px;
   margin: 1% auto;
   height: 83vh;
   overflow-y: hidden;
@@ -46,6 +52,11 @@ p {
   box-shadow: 2px 2px 2px var(--yellow);
   border-radius: 50%;
   margin: 2px 8px;
+  cursor: pointer;
+}
+
+.post-image:hover {
+  box-shadow: 2px 2px 8px var(--yellow);
 }
 
 .post-body {
@@ -54,7 +65,7 @@ p {
   justify-content: space-between;
   height: 10vh;
   width: auto;
-  min-width: 360px;
+  min-width: 375px;
   margin: 2px 0;
   padding: 5px;
   box-shadow: 0px 0px 1px var(--yellow);
@@ -103,4 +114,16 @@ p {
 .feed-header-title {
   color: var(--blue);
   text-shadow: 0px 0px 1px whitesmoke;
+}
+
+::-webkit-scrollbar {
+  background-color: inherit;
+  width: 6px;
+  border-radius: 10px;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color:var(--blue);
+  border-radius: 10px;
 }
