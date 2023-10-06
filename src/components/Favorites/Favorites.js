@@ -30,7 +30,7 @@ export const Favorites = ({ currentUser }) => {
     getAllPosts().then((data) => {
       setAllPosts(data);
     });
-  }, []);
+  }, [currentUser]);
 
   useEffect(() => {
     getFavPosts(currentUser).then((favesArray) => {
