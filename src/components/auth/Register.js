@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
+import logo from "./NoTextLogo.png"
 import { createUser, getUserByEmail } from "../../services/userService.js/getAllUsers"
 
 export const Register = (props) => {
@@ -53,9 +54,23 @@ export const Register = (props) => {
   return (
     <main className="auth-container">
       <form className="auth-form" onSubmit={handleRegister}>
-        <h1 className="header">Learning Moments</h1>
-        <h2>Please Register</h2>
-        <fieldset className="auth-fieldset">
+      <div className="header">
+            <div className="header-heading">
+              <h1 id="header-title">Learning Moments</h1>
+            </div>
+            <img
+              alt="logo of lightbulb with brain inside and the text learning moments"
+              id="login-logo"
+              src={logo}
+            />
+            <div className="header-subheading">
+              <h3>Code Together.</h3>
+              <h3>Learn Together.</h3>
+              <h3>One Moment at a Time.</h3>
+            </div>
+          </div>
+        <h2 id="reg-title">Create Account</h2>
+        <div className="auth-div">
           <div>
             <input
               onChange={updateUser}
@@ -67,8 +82,8 @@ export const Register = (props) => {
               autoFocus
             />
           </div>
-        </fieldset>
-        <fieldset className="auth-fieldset">
+        </div>
+        <div className="auth-div">
           <div>
             <input
               onChange={updateUser}
@@ -79,8 +94,8 @@ export const Register = (props) => {
               required
             />
           </div>
-        </fieldset>
-        <fieldset className="auth-fieldset">
+        </div>
+        <div className="auth-div">
           <div>
             <input
               onChange={updateUser}
@@ -91,12 +106,12 @@ export const Register = (props) => {
               required
             />
           </div>
-        </fieldset>
-        <fieldset className="auth-fieldset">
+        </div>
+        <div className="auth-div">
           <div>
-            <button type="submit">Register</button>
+            <button id="register-button" type="submit">Register</button>
           </div>
-        </fieldset>
+        </div>
       </form>
     </main>
   )

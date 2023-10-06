@@ -1,12 +1,44 @@
+h3 {
+  font-weight: 400;
+  padding: 2px;
+}
+
 .auth-container {
-  border: 1px solid gray;
-  margin: 3rem 15rem;
-  padding: 2rem;
-  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black);
+  width: 40vw;
+  min-width: 320px;
+  margin: 60px auto;
+  padding: 20px;
+  border-radius: 1.5rem;
+  box-shadow: 0px 0px 28px 10px var(--yellow);
 }
 
 .header {
   font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#header-title {
+  color: var(--yellow);
+  font-size: 1.5em;
+  padding: 2px;
+  margin: 5px;
+}
+
+#login-logo {
+  height: 30vh;
+  padding: 5px;
+  margin: 5px;
+}
+
+.header-subheading {
+  padding: 6px;
+  margin-bottom: 20px;
 }
 
 .auth-form {
@@ -15,14 +47,65 @@
   align-items: center;
 }
 
+.auth-div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
 .auth-form-input {
+  color: var(--black);
+  font-family: inherit;
+  width: 275px;
+  height: 20px;
   padding: 0.25rem;
+  margin-bottom: 10px;
+}
+
+#sign-in-button {
+  background-color: var(--blue);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+#sign-in-button:hover {
+  background-color: var(--blue);
+  box-shadow: 0px 0px 10px 2px var(--yellow);
+  color: var(--yellow);
+}
+
+#register-button {
+  background-color: var(--blue);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+#register-button:hover {
+  background-color: var(--blue);
+  box-shadow: 0px 0px 10px 2px var(--yellow);
+  color: var(--yellow);
 }
 
 .register-link {
   text-align: center;
+  cursor: pointer;
 }
 
-.auth-fieldset {
-  margin: 0.25rem 0rem;
+.register-link:hover {
+  color: var(--yellow)
+}
+
+#reg-title {
+  padding: 0;
+  margin-bottom: 20px;
 }
