@@ -11,3 +11,9 @@ I learned so much from this project, primarily managing state using react hooks.
 
 This project has a separate repository for the database.json file where data is contained. 
 All data is obtained via fetch calls to database.json file.
+
+Video Demo: https://youtu.be/MOaoMMW_P8k
+
+Project Wireframe: https://miro.com/app/board/uXjVMgwHENQ=/?share_link_id=359696144381
+
+Project ERD: https://dbdiagram.io/d/Learning-Moments-65144182ffbf5169f09c9c5c
