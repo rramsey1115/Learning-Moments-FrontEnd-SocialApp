@@ -8,7 +8,8 @@ I decided to add myown flare to the NSS project by going beyond the requirements
 
 I learned so much from this project, primarily managing state using React hooks and managing the React lifecycle.
 
-This project has a separate repository for the database.json file where data is contained - Learning-Moments-API.
+This project has a separate repository for the database.json file where data is contained - Learning-Moments-API:
+https://github.com/rramsey1115/Learning-Moments-API/blob/main/README.md
 
 
 About Learning Moments
